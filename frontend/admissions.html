@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Modern High School</title>
+    
+    <!-- Favicon & Font Awesome Icons -->
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/your-repo/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/admissions.css">
+</head>
+<body>
+    <header class="formal-header">
+        <div class="logo">
+            <img src="/assets/img/logo.png" alt="School Logo" class="logo-img">
+            <span>Modern High School</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="academics.html">Academics</a>
+            <a href="news_events.html">News & Events</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="admissions-container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Admissions</h1>
+                <p>Start your journey at Modern High School. Apply now!</p>
+            </div>
+            <img src="/assets/img/admissions.jpg" alt="Admissions" class="hero-img">
+        </section>
+
+        <!-- Admissions Form -->
+        <section class="admissions-form">
+            <h2>Application Form</h2>
+            <form action="/submit_admission" method="POST" class="form-container">
+                <!-- Personal Details -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name"><i class="fas fa-user"></i> First Name</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name"><i class="fas fa-user"></i> Last Name</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob"><i class="fas fa-calendar"></i> Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Don't promote that other Bullshit</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <div class="form-section">
+                    <h3>Address Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address"><i class="fas fa-home"></i> Address</label>
+                            <input type="text" id="address" name="address" placeholder="123 Main St." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city"><i class="fas fa-building"></i> City</label>
+                            <input type="text" id="city" name="city" placeholder="City" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="state"><i class="fas fa-map-marker-alt"></i> State</label>
+                            <input type="text" id="state" name="state" placeholder="State" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipcode"><i class="fas fa-map-pin"></i> Zip Code</label>
+                            <input type="text" id="zipcode" name="zipcode" placeholder="12345" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Information -->
+                <div class="form-section">
+                    <h3>Academic Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="grade"><i class="fas fa-graduation-cap"></i> Grade Applying For</label>
+                            <select id="grade" name="grade" required>
+                                <option value="9">Grade 9</option>
+                                <option value="10">Grade 10</option>
+                                <option value="11">Grade 11</option>
+                                <option value="12">Grade 12</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="previous-school"><i class="fas fa-school"></i> Previous School</label>
+                            <input type="text" id="previous-school" name="previous-school" placeholder="School Name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Documents -->
+                <div class="form-section">
+                    <h3>Documents Upload</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birth-certificate"><i class="fas fa-file-alt"></i> Birth Certificate</label>
+                            <input type="file" id="birth-certificate" name="birth-certificate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="transcript"><i class="fas fa-file-alt"></i> Academic Transcript</label>
+                            <input type="file" id="transcript" name="transcript" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-section">
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="formal-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Our mission is to inspire and educate future leaders.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/admin_portal.html">Admin Portal</a></li>
+                    <li><a href="/academics.html">Academics</a></li>
+                    <li><a href="/news_events.html">News & Events</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/student_portal.html">Student Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect with Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Modern High School. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

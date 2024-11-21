@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Modern High School</title>
+    
+    <!-- Favicon & Font Awesome Icons -->
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/your-repo/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/academics.css">
+
+    <!-- Chart.js for Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="formal-header">
+        <div class="logo">
+            <img src="/assets/img/logo.png" alt="School Logo" class="logo-img">
+            <span>Modern High School</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="academics.html">Academics</a>
+            <a href="news_events.html">News & Events</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="academics-container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Academics</h1>
+                <p>Explore our departments, courses, and top performers at Modern High School.</p>
+            </div>
+            <img src="/assets/img/kidsinclass.jpg" alt="Academics" class="hero-img">
+        </section>
+
+        <!-- Performance Graphs Section -->
+        <section class="performance-graphs">
+            <div class="card">
+                <h2>Student Performance</h2>
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="card">
+                <h2>Pass Rate by Grade</h2>
+                <canvas id="passRateChart"></canvas>
+            </div>
+            <div class="card">
+                <h2>Enrolled Students</h2>
+                <canvas id="enrollmentChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Top Students Section -->
+        <section class="top-students">
+            <h2>Top 3 Students</h2>
+            <div class="students-container">
+                <div class="student-card">
+                    <img src="/assets/img/student1.jpg" alt="Student 1">
+                    <h3>John Doe</h3>
+                    <p>Grade 12</p>
+                    <button onclick="window.location.href='/student_dashboard.html'">View Profile</button>
+                </div>
+                <div class="student-card">
+                    <img src="/assets/img/student2.jpg" alt="Student 2">
+                    <h3>Jane Smith</h3>
+                    <p>Grade 11</p>
+                    <button onclick="window.location.href='/student_dashboard.html'">View Profile</button>
+                </div>
+                <div class="student-card">
+                    <img src="/assets/img/student3.jpg" alt="Student 3">
+                    <h3>Mark Johnson</h3>
+                    <p>Grade 10</p>
+                    <button onclick="window.location.href='/student_dashboard.html'">View Profile</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departments and Teachers Section -->
+        <section class="departments">
+            <h2>Departments and Teachers</h2>
+            <div class="department-container">
+                <!-- Department 1 -->
+                <div class="department-card">
+                    <h3>Mathematics</h3>
+                    <p>Led by Mr. Richard Brown</p>
+                    <button onclick="window.location.href='/teacher_profile.html'">View Profile</button>
+                </div>
+                <!-- Department 2 -->
+                <div class="department-card">
+                    <h3>Science</h3>
+                    <p>Led by Mrs. Emily Davis</p>
+                    <button onclick="window.location.href='/teacher_profile.html'">View Profile</button>
+                </div>
+                <!-- Department 3 -->
+                <div class="department-card">
+                    <h3>English</h3>
+                    <p>Led by Ms. Sarah White</p>
+                    <button onclick="window.location.href='/teacher_profile.html'">View Profile</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="formal-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Our mission is to inspire and educate future leaders.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/admin_portal.html">Admin Portal</a></li>
+                    <li><a href="/academics.html">Academics</a></li>
+                    <li><a href="/news_events.html">News & Events</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                    <li><a href="/student_portal.html">Student Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect with Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Modern High School. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Chart.js Initialization -->
+    <script>
+        // Student Performance Chart
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(performanceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['John Doe', 'Jane Smith', 'Mark Johnson'],
+                datasets: [{
+                    label: 'Performance Score',
+                    data: [85, 90, 75],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Pass Rate by Grade Chart
+        const passRateCtx = document.getElementById('passRateChart').getContext('2d');
+        const passRateChart = new Chart(passRateCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'],
+                datasets: [{
+                    label: 'Pass Rate',
+                    data: [95, 85, 90, 92],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Enrolled Students Chart
+        const enrollmentCtx = document.getElementById('enrollmentChart').getContext('2d');
+        const enrollmentChart = new Chart(enrollmentCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Enrolled Students',
+                    data: [200, 220, 230, 250, 270],
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
